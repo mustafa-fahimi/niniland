@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:niniland/Games/FireWork.dart';
 import 'package:niniland/Screens/MainScreen.dart';
 import 'package:niniland/Screens/SoundsMenuScreen.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SnapStars(),
+      home: FireWork(),
     );
   }
 }

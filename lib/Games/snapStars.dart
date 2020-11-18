@@ -36,46 +36,40 @@ class _SnapStartState extends State<SnapStars> {
             duration: Duration(milliseconds: 5000),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-
               children: [
                 Text(
                   "روی اشیا کلیک کنید",
-                  style: AppTheme.fontCreator(15, FontWeights.medium,  Colors.white),
+                  style: AppTheme.fontCreator(
+                      15, FontWeights.medium, Colors.white),
                   textAlign: TextAlign.center,
                 ),
               ],
             ),
           ),
         ),
-        Positioned(
+        AnimatedPositioned(
+          duration: Duration(milliseconds: 1000),
           top: ScreenUtil().setHeight(y),
           left: ScreenUtil().setWidth(x),
-          child: AnimatedSwitcher(
-            duration: Duration(milliseconds: 1000),
-            transitionBuilder: (Widget child, Animation<double> animation) {
-              return ScaleTransition(child: child, scale: animation);
+          child: GestureDetector(
+            onTap: () {
+              if (isInProgress == false) {
+                isInProgress = true;
+                key.currentState.snap();
+                Future.delayed(Duration(milliseconds: 2200)).then((value) {
+                  getRandomPosition();
+                  setState(() {});
+                  isInProgress = false;
+                });
+              }
             },
-            child: GestureDetector(
-              onTap: () {
-                if(isInProgress == false){
-                  isInProgress = true;
-                  key.currentState.snap();
-                  Future.delayed(Duration(milliseconds: 2200)).then((value) {
-                    getRandomPosition();
-                    setState(() {
-                      key.currentState.reset();
-                    });
-                    isInProgress = false;
-                  });
-                }
-              },
-              child: Snappable(
-                key: key,
-                duration: Duration(milliseconds: 2000),
-                child: SvgPicture.asset('assets/images/svg/moon.svg',
-                  width: ScreenUtil().setWidth(60),
-                  fit: BoxFit.fitWidth,
-                ),
+            child: Snappable(
+              key: key,
+              duration: Duration(milliseconds: 2000),
+              child: SvgPicture.asset(
+                'assets/images/svg/moon.svg',
+                width: ScreenUtil().setWidth(60),
+                fit: BoxFit.fitWidth,
               ),
             ),
           ),

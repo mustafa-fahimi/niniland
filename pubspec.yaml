@@ -17,6 +17,7 @@ dependencies:
   fdottedline: ^1.0.1
   snappable: ^1.0.1
   cupertino_icons: ^1.0.0
+  pimp_my_button: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -28,6 +29,7 @@ flutter:
   assets:
     - assets/images/svg/
     - assets/images/png/
+    - assets/images/
 
   fonts:
     - family: aseman
