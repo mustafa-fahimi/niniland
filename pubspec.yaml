@@ -26,6 +26,7 @@ dependencies:
   websafe_svg: ^1.1.4
   flutter_screenutil: ^3.2.0
   flare_flutter: ^2.0.6
+  dotted_border: ^1.0.6
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -62,15 +63,23 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-#  fonts:
-#    - family: IRANSans
-#      fonts:
-#        - asset: assets/fonts/IRANSans.ttf
-#          weight: 400
-#        - asset: assets/fonts/IRANSansBold.ttf
-#          weight: 700
-#        - asset: assets/fonts/IRANSansLight.ttf
-#          weight: 300
+  fonts:
+    - family: aseman
+      fonts:
+        - asset: assets/fonts/aseman.ttf
+          weight: 300
+    - family: IRANSans
+      fonts:
+        - asset: assets/fonts/IRANSansBold.ttf
+          weight: 500
+        - asset: assets/fonts/IRANSansMedium.ttf
+          weight: 400
+        - asset: assets/fonts/IRANSans.ttf
+          weight: 300
+        - asset: assets/fonts/IRANSansLight.ttf
+          weight: 200
+        - asset: assets/fonts/IRANSansUltraLight.ttf
+          weight: 100
   # fonts:
   #   - family: Schyler
   #     fonts:
