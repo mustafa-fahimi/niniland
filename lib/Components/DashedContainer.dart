@@ -48,8 +48,8 @@ class DashedContainer extends StatelessWidget {
               ScreenUtil().setWidth(12),
             ),
         child: InkWell(
-          onTap: onTap ?? () {},
-          splashColor: Colors.grey,
+          onTap: onTap,
+          splashColor: Colors.grey.withOpacity(0.2),
           borderRadius: borderRadius ??
               BorderRadius.circular(
                 ScreenUtil().setWidth(12),

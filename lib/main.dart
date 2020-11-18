@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:niniland/Screens/MainScreen.dart';
-import 'package:niniland/Screens/SoundsMenuScreen.dart';
+import 'package:niniland/Screens/HomeScreen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -8,15 +7,17 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'بچه جون',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SoundsMenuScreen(),
+      home: HomeScreen(),
     );
   }
+
 }
