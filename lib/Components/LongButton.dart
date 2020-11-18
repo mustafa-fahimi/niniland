@@ -18,12 +18,18 @@ class LongButton extends StatelessWidget {
       onPressed: onTap,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.only(top: 3.h,bottom: 3.h),
+        padding: EdgeInsets.only(top: 3.h, bottom: 3.h),
         decoration: BoxDecoration(
           color: backgroundColor ?? AppTheme.lightBlue2,
-          borderRadius: BorderRadius.all(Radius.circular(6.h)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(6.h),
+          ),
         ),
-        child: Text(text??"",style: AppTheme.iranSansStyle(9, Colors.white),textAlign: TextAlign.center,),
+        child: Text(
+          text ?? "",
+          style: AppTheme.fontCreator(9, FontWeights.medium,  Colors.white),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }

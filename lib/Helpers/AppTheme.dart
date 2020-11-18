@@ -19,33 +19,21 @@ class AppTheme {
         allowFontScaling: true);
   }
 
-  static Color lightBlueColor = Color(0xff9dd6e4);
-  static Color lightPinkColor = Color(0xfff79d9d);
-  static TextStyle iranSansStyle(double size, Color color,
-      [FontWeight fontWeight = FontWeight.w300]) {
-    return TextStyle(
-      fontFamily: "IRANSans",
-      fontSize: ScreenUtil().setSp(size),
-      fontWeight: fontWeight,
-      color: color ?? Color(0xFF00728e),
-    );
-  }
-
-  ///Colors blue family
-  static Color darkBlue = Color(0xFF00728e);
-  static Color lightBlue = Color(0xFF9dd6e4);
+  ///Colors
+  static Color lightBlue = Color(0xff9dd6e4);
   static Color lightBlue2 = Color(0xFF3acce1);
-
-  /// white and black family
+  static Color darkBlue = Color(0xFF00728e);
+  static Color lightPink = Color(0xfff79d9d);
   static Color gray = Color(0xFF707070);
   static Color shadow = Color(0x29000000);
 
   static const asemanFontName = 'aseman';
+  static const iransansFontName = 'IRANSans';
 
-  static TextStyle fontCreator(fontSize, FontWeights fontWeights, fontColor, [lineHeight]) {
+  static TextStyle fontCreator(fontSize, FontWeights fontWeights, fontColor, [fontName, lineHeight]) {
     return TextStyle(
       color: fontColor,
-      fontFamily: asemanFontName,
+      fontFamily: fontName ?? iransansFontName,
       fontWeight: fontWeights == FontWeights.light
           ? FontWeight.w300
           : fontWeights == FontWeights.regular
