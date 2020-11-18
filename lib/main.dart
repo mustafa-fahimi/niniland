@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:niniland/Screens/HomeScreen.dart';
 
+import 'Games/SnapStars.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());

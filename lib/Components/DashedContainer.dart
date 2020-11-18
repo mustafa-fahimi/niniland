@@ -10,6 +10,7 @@ class DashedContainer extends StatelessWidget {
   final Function onTap;
   final double width;
   final double height;
+  final  bool isFreeSize;
   final BorderRadius borderRadius;
   final FDottedLineCorner dotLineBorderRadius;
 
@@ -21,7 +22,7 @@ class DashedContainer extends StatelessWidget {
     this.width,
     this.height,
     this.borderRadius,
-    this.dotLineBorderRadius,
+    this.dotLineBorderRadius, this.isFreeSize = false,
   }) : super(key: key);
 
   @override
@@ -29,7 +30,7 @@ class DashedContainer extends StatelessWidget {
     ScreenUtil.init(context, designSize: Size(207, 368));
     return Container(
       width: ScreenUtil().setWidth(width ?? 100),
-      height: ScreenUtil().setHeight(height ?? 80),
+      height: isFreeSize ? null : ScreenUtil().setHeight(height ?? 80),
       padding: EdgeInsets.all(3.w),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -60,7 +61,10 @@ class DashedContainer extends StatelessWidget {
             space: 5.0,
             strokeWidth: 3,
             corner: dotLineBorderRadius ?? FDottedLineCorner.all(12.h),
-            child: child,
+            child: Padding(
+              padding: innerPadding ?? EdgeInsets.zero,
+              child: child,
+            ),
           ),
         ),
       ),
