@@ -1,14 +1,11 @@
-import 'package:dotted_border/dotted_border.dart';
+import "dart:math" show pi;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:niniland/Components/CloudBackground.dart';
 import 'package:niniland/Components/DashedContainer.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
-import 'package:niniland/Helpers/EdgeInsetsShortener.dart';
-import "dart:math" show pi;
-
-import 'BuyDialog.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -24,7 +21,6 @@ class _MainScreenState extends State<MainScreen> {
         body: Container(
           width: ScreenUtil().setWidth(207),
           height: ScreenUtil().setHeight(368),
-          color: AppTheme.lightBlue,
           child: Stack(
             children: [
               ///Cloud Background
