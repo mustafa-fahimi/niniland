@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:niniland/Screens/MainScreen.dart';
 import 'package:niniland/Screens/SoundsMenuScreen.dart';
 
+import 'Games/SnapStars.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SoundsMenuScreen(),
+      home: SnapStars(),
     );
   }
 }
