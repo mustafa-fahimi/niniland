@@ -91,7 +91,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     motion: Motion.Play,
                     animDuration: Duration(milliseconds: 4000),
                     animStatus: (status) {
-                      print(status);
                       if (status == AnimationStatus.completed) {
                         _springKeyMoon.currentState.animate(motion: Motion.Reverse);
                       } else if (status == AnimationStatus.dismissed) {

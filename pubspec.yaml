@@ -16,8 +16,9 @@ dependencies:
   flare_flutter: ^2.0.6
   fdottedline: ^1.0.1
   spring: ^1.0.4
-
   snappable: ^1.0.1
+
+
   cupertino_icons: ^1.0.0
 
 dev_dependencies:
