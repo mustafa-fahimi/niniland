@@ -23,8 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  websafe_svg: ^1.1.4
+  flutter_svg: ^0.19.1
   flutter_screenutil: ^3.2.0
+  dotted_border: ^1.0.6
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -45,6 +46,14 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/images/svg/
+    - assets/images/png/
+
+  fonts:
+    - family: aseman
+      fonts:
+        - asset: assets/fonts/aseman.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
