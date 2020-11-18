@@ -15,7 +15,10 @@ dependencies:
   flutter_screenutil: ^3.2.0
   flare_flutter: ^2.0.6
   fdottedline: ^1.0.1
+  spring: ^1.0.4
   snappable: ^1.0.1
+
+
   cupertino_icons: ^1.0.0
   pimp_my_button: ^1.0.0
 
