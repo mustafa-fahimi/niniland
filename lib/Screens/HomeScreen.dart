@@ -31,10 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Stack(
               children: [
                 ///Cloud Background
-                Hero(
-                  tag: 'bgHero',
-                  child: CloudBackgroundWidget(),
-                ),
+                CloudBackgroundWidget(),
 
                 ///Main Logo top
                 Positioned(
@@ -55,25 +52,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: DashedContainer(
                     height: 80,
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          transitionDuration: Duration(milliseconds: 500),
-                          pageBuilder: (_, __, ___) => SoundsMenuScreen(),
-                        ),
-                      );
+                      Navigator.of(context).push(PageRouteBuilder(
+                        transitionDuration:
+                        const Duration(milliseconds: 800),
+                        pageBuilder: (_, animation, __) =>
+                            FadeTransition(
+                              opacity: animation,
+                              child: SoundsMenuScreen(),
+                            ),
+                      ));
                     },
                     child: Container(
                       width: ScreenUtil().screenWidth,
                       height: ScreenUtil().screenHeight,
                       alignment: Alignment.center,
-                      child: Text(
-                        "صداها",
-                        style: AppTheme.fontCreator(
-                          32,
-                          FontWeights.medium,
-                          AppTheme.lightPink,
-                          AppTheme.asemanFontName,
+                      child: Hero(
+                        tag: "sound_text",
+                        child: Text(
+                          "صداها",
+                          style: AppTheme.fontCreator(
+                            32,
+                            FontWeights.medium,
+                            AppTheme.lightPink,
+                            AppTheme.asemanFontName,
+                          ),
                         ),
                       ),
                     ),

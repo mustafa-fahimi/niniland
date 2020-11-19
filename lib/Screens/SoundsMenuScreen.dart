@@ -31,40 +31,40 @@ class _SoundsMenuScreenState extends State<SoundsMenuScreen> {
             child: Stack(
               children: [
                 ///Cloud Background
-                Hero(
-                  tag: 'bgHero',
-                  child: CloudBackgroundWidget(),
-                ),
+                CloudBackgroundWidget(),
 
                 ///Top title
                 Positioned(
                   left: 0,
                   right: 0,
                   top: -10.h,
-                  child: DashedContainer(
-                    height: 100,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(0),
-                      topRight: Radius.circular(0),
-                      bottomRight: Radius.circular(47.w),
-                      bottomLeft: Radius.circular(47.w),
-                    ),
-                    dotLineBorderRadius: FDottedLineCorner(
-                      leftTopCorner: 0,
-                      rightTopCorner: 0,
-                      leftBottomCorner: 47.w,
-                      rightBottomCorner: 47.w,
-                    ),
-                    child: Container(
-                      alignment: Alignment.center,
-                      margin: singleMargin(left: 60, top: 20),
-                      child: Text(
-                        "صداها",
-                        style: AppTheme.fontCreator(
-                          40,
-                          FontWeights.medium,
-                          AppTheme.lightPink,
-                          AppTheme.asemanFontName,
+                  child: Hero(
+                    tag: "sound_text",
+                    child: DashedContainer(
+                      height: 100,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(0),
+                        topRight: Radius.circular(0),
+                        bottomRight: Radius.circular(47.w),
+                        bottomLeft: Radius.circular(47.w),
+                      ),
+                      dotLineBorderRadius: FDottedLineCorner(
+                        leftTopCorner: 0,
+                        rightTopCorner: 0,
+                        leftBottomCorner: 47.w,
+                        rightBottomCorner: 47.w,
+                      ),
+                      child: Container(
+                        alignment: Alignment.center,
+                        margin: singleMargin(left: 60, top: 20),
+                        child: Text(
+                          "صداها",
+                          style: AppTheme.fontCreator(
+                            40,
+                            FontWeights.medium,
+                            AppTheme.lightPink,
+                            AppTheme.asemanFontName,
+                          ),
                         ),
                       ),
                     ),
