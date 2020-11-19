@@ -37,14 +37,17 @@ class _BuyDialogState extends State<BuyDialog> {
           }, animation: teddyAction),
         ),
         DashedContainer(
-          innerPadding: EdgeInsets.only(top: 14.h, bottom: 10.h, left: 9.w, right: 9.w),
+          width: 195,
+          isFreeSize: true,
+          innerPadding:
+              EdgeInsets.only(top: 14.h, bottom: 10.h, left: 9.w, right: 9.w),
           child: Container(
-            width: 0.78.sw,
             child: Column(
               children: <Widget>[
                 Text(
                   "امکان پخش  بیش تر از یک ساعت در نسخه رایگان وجود ندارد. ممنون می شویم با خرید نسخه کامل ما را در توسعه نرم افزار یاری کنید",
-                  style: AppTheme.fontCreator(9, FontWeights.medium, AppTheme.darkBlue),
+                  style: AppTheme.fontCreator(
+                      9, FontWeights.medium, AppTheme.darkBlue),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
