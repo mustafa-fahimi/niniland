@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "301399612564",
+    "firebase_url": "https://niniland-ccc0e.firebaseio.com",
+    "project_id": "niniland-ccc0e",
+    "storage_bucket": "niniland-ccc0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301399612564:android:9de9ed9212c310c305e881",
+        "android_client_info": {
+          "package_name": "ir.niniland"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301399612564-hkp8qmujp52c2ovtag92av0t52r6l4es.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoM_H_MlgpSthIHt3Pjz3vSX41cQvAVk0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301399612564-hkp8qmujp52c2ovtag92av0t52r6l4es.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
