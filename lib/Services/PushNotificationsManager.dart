@@ -5,8 +5,7 @@ class PushNotificationsManager {
 
   factory PushNotificationsManager() => _instance;
 
-  static final PushNotificationsManager _instance =
-      PushNotificationsManager._();
+  static final PushNotificationsManager _instance = PushNotificationsManager._();
 
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   bool _initialized = false;
@@ -19,7 +18,6 @@ class PushNotificationsManager {
 
       // For testing purposes print the Firebase Messaging token
       String token = await _firebaseMessaging.getToken();
-      print("FirebaseMessaging token: $token");
 
       _initialized = true;
       getMessage();
@@ -27,8 +25,7 @@ class PushNotificationsManager {
   }
 
   void getMessage() {
-    _firebaseMessaging.configure(
-        onMessage: (Map<String, dynamic> message) async {
+    _firebaseMessaging.configure(onMessage: (Map<String, dynamic> message) async {
       print('on message $message');
     }, onResume: (Map<String, dynamic> message) async {
       print('on resume $message');

@@ -1,7 +1,7 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:niniland/Components/DashedContainer.dart';
+import 'package:niniland/Components/DashedContainerWidget.dart';
 import 'package:niniland/Components/LongButton.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
 
@@ -36,9 +36,8 @@ class _BuyDialogState extends State<BuyDialog> {
             }
           }, animation: teddyAction),
         ),
-        DashedContainer(
+        DashedContainerWidget(
           width: 195,
-          isFreeSize: true,
           innerPadding:
               EdgeInsets.only(top: 14.h, bottom: 10.h, left: 9.w, right: 9.w),
           child: Container(

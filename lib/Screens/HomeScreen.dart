@@ -3,8 +3,8 @@ import "dart:math" show pi;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:niniland/Components/CloudBackground.dart';
-import 'package:niniland/Components/DashedContainer.dart';
+import 'package:niniland/Components/CloudBackgroundWidget.dart';
+import 'package:niniland/Components/DashedContainerWidget.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
 import 'package:niniland/Screens/SoundsMenuScreen.dart';
 import 'package:spring/spring.dart';
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   left: ScreenUtil().setWidth(12),
                   right: ScreenUtil().setWidth(12),
                   top: ScreenUtil().screenHeight * 0.27,
-                  child: DashedContainer(
+                  child: DashedContainerWidget(
                     height: 80,
                     onTap: () {
                       Navigator.of(context).push(PageRouteBuilder(
@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   left: ScreenUtil().setWidth(12),
                   right: ScreenUtil().setWidth(12),
                   top: ScreenUtil().screenHeight * 0.54,
-                  child: DashedContainer(
+                  child: DashedContainerWidget(
                     height: 80,
                     child: Container(
                       alignment: Alignment.center,

@@ -2,19 +2,17 @@ import 'package:fdottedline/fdottedline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
-import 'package:niniland/Helpers/EdgeInsetsShortener.dart';
 
-class DashedContainer extends StatelessWidget {
+class DashedContainerWidget extends StatelessWidget {
   final Widget child;
   final EdgeInsets innerPadding;
   final Function onTap;
   final double width;
   final double height;
-  final  bool isFreeSize;
   final BorderRadius borderRadius;
   final FDottedLineCorner dotLineBorderRadius;
 
-  const DashedContainer({
+  const DashedContainerWidget({
     Key key,
     this.child,
     this.innerPadding,
@@ -22,15 +20,15 @@ class DashedContainer extends StatelessWidget {
     this.width,
     this.height,
     this.borderRadius,
-    this.dotLineBorderRadius, this.isFreeSize = false,
+    this.dotLineBorderRadius,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, designSize: Size(207, 368));
     return Container(
-      width: ScreenUtil().setWidth(width ?? 100),
-      height: isFreeSize ? null : ScreenUtil().setHeight(height ?? 80),
+      width: width != null ? ScreenUtil().setWidth(width) : null,
+      height: height != null ? ScreenUtil().setHeight(height) : null,
       padding: EdgeInsets.all(3.w),
       decoration: BoxDecoration(
         color: Colors.white,

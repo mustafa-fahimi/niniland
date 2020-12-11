@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:niniland/Screens/HomeScreen.dart';
+import 'package:niniland/Providers/SoundsProvider.dart';
+import 'package:niniland/Screens/SoundPlayScreen.dart';
+import 'package:provider/provider.dart';
 
-import 'Games/GameMainPage.dart';
-import 'Games/SnapStars.dart';
-import 'Helpers/PushNotificationsManager.dart';
-import 'Screens/BuyDialog.dart';
+import 'Services/PushNotificationsManager.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   PushNotificationsManager notificationsManager = PushNotificationsManager();
   notificationsManager.init();
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => SoundsProvider(),
+          child: MyApp(),
+        ),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,8 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: GameMainPage(),
+      home: SoundPlayScreen(),
     );
   }
-
 }

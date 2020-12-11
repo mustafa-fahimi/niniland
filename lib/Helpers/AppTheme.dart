@@ -24,6 +24,7 @@ class AppTheme {
   static Color lightBlue2 = Color(0xFF3acce1);
   static Color darkBlue = Color(0xFF00728e);
   static Color lightPink = Color(0xfff79d9d);
+  static Color pink = Color(0xffed84a6);
   static Color gray = Color(0xFF707070);
   static Color shadow = Color(0x29000000);
 
