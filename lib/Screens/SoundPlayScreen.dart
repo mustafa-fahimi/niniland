@@ -172,7 +172,7 @@ class _SoundPlayScreenState extends State<SoundPlayScreen> {
                                         40,
                                         index,
                                         durationNamesList.elementAt(index),
-                                        (){
+                                        () {
                                           soundsProvider.setActiveDurationIndex(index);
                                           _audioPlayer.stop();
                                           soundsProvider.resetSoundsData();
@@ -235,6 +235,8 @@ class _SoundPlayScreenState extends State<SoundPlayScreen> {
                                                           if (soundsProv.lastSoundPlayingIndex != index) {
                                                             _audioPlayer.open(
                                                               Audio(soundsProv.soundsData(index).soundAddress),
+                                                              loopMode: LoopMode.single,
+                                                              playInBackground: PlayInBackground.enabled,
                                                             );
                                                             startTimer();
                                                             soundsProv.setLastSoundPlayingIndex(index);
@@ -243,6 +245,8 @@ class _SoundPlayScreenState extends State<SoundPlayScreen> {
                                                         } else {
                                                           _audioPlayer.open(
                                                             Audio(soundsProv.soundsData(index).soundAddress),
+                                                            loopMode: LoopMode.single,
+                                                            playInBackground: PlayInBackground.enabled,
                                                           );
                                                           startTimer();
                                                           soundsProv.setLastSoundPlayingIndex(index);

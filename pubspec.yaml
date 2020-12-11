@@ -22,7 +22,7 @@ dependencies:
   firebase_messaging: ^7.0.3
   cupertino_icons: ^1.0.0
   pimp_my_button: ^1.0.0
-  assets_audio_player: ^1.7.0
+  assets_audio_player: ^2.0.13+1
   provider: ^4.3.2+2
 
 dev_dependencies:

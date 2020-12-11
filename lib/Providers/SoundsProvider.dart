@@ -4,9 +4,20 @@ import 'package:niniland/Models/SoundsModel.dart';
 class SoundsProvider extends ChangeNotifier {
   int _activeDurationIndex = 0;
   List<SoundsModel> _soundsData = [
+    SoundsModel("باران", "assets/audios/rain_sound.mp3", false),
+    SoundsModel("رودخانه", "assets/audios/river_sound.mp3", false),
+    SoundsModel("دریا", "assets/audios/sea_sound.mp3", false),
+    SoundsModel("شوش", "assets/audios/female_shush_sound.mp3", false),
+    SoundsModel("شوش با موسیقی", "assets/audios/shush_music_sound.mp3", false),
+    SoundsModel("رحم", "assets/audios/utero_sound.mp3", false),
+    SoundsModel("جعبه موسیفی", "assets/audios/music_box_sound.mp3", false),
+    SoundsModel("جاروبرقی", "assets/audios/vacuum_cleaner_sound.mp3", false),
+    SoundsModel("ماشین", "assets/audios/car_engine_sound.mp3", false),
+    SoundsModel("قلب", "assets/audios/heartbeat_sound.mp3", false),
+    SoundsModel("کابین هواپیما", "assets/audios/airplane_cabin_sound.mp3", false),
+    SoundsModel("لباسشویی", "assets/audios/washing_machine_sound.mp3", false),
+    SoundsModel("سشوار", "assets/audios/hairdryer_sound.mp3", false),
     SoundsModel("دوش حمام", "assets/audios/shower_sound.mp3", false),
-    SoundsModel("جاروبرقی", "assets/audios/shower_sound.mp3", false),
-    SoundsModel("قلب", "assets/audios/shower_sound.mp3", false),
   ];
   int _lastSoundPlayingIndex = -1;
 
@@ -32,9 +43,20 @@ class SoundsProvider extends ChangeNotifier {
 
   void resetSoundsData(){
     _soundsData = [
+      SoundsModel("باران", "assets/audios/rain_sound.mp3", false),
+      SoundsModel("رودخانه", "assets/audios/river_sound.mp3", false),
+      SoundsModel("دریا", "assets/audios/sea_sound.mp3", false),
+      SoundsModel("شوش", "assets/audios/female_shush_sound.mp3", false),
+      SoundsModel("شوش با موسیقی", "assets/audios/shush_music_sound.mp3", false),
+      SoundsModel("رحم", "assets/audios/utero_sound.mp3", false),
+      SoundsModel("جعبه موسیقی", "assets/audios/music_box_sound.mp3", false),
+      SoundsModel("جاروبرقی", "assets/audios/vacuum_cleaner_sound.mp3", false),
+      SoundsModel("ماشین", "assets/audios/car_engine_sound.mp3", false),
+      SoundsModel("قلب", "assets/audios/heartbeat_sound.mp3", false),
+      SoundsModel("کابین هواپیما", "assets/audios/airplane_cabin_sound.mp3", false),
+      SoundsModel("لباسشویی", "assets/audios/washing_machine_sound.mp3", false),
+      SoundsModel("سشوار", "assets/audios/hairdryer_sound.mp3", false),
       SoundsModel("دوش حمام", "assets/audios/shower_sound.mp3", false),
-      SoundsModel("جاروبرقی", "assets/audios/shower_sound.mp3", false),
-      SoundsModel("قلب", "assets/audios/shower_sound.mp3", false),
     ];
     notifyListeners();
   }
