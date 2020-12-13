@@ -37,6 +37,8 @@ flutter:
     - assets/images/png/
     - assets/images/
     - assets/audios/
+    - assets/audios/sounds/
+    - assets/audios/lullabies/
 
   fonts:
     - family: aseman

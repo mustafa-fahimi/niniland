@@ -7,6 +7,7 @@ import 'package:niniland/Components/CloudBackgroundWidget.dart';
 import 'package:niniland/Components/DashedContainerWidget.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
 import 'package:niniland/Helpers/EdgeInsetsShortener.dart';
+import 'package:niniland/Screens/SoundPlayScreen.dart';
 import 'package:spring/spring.dart';
 
 class SoundsMenuScreen extends StatefulWidget {
@@ -97,20 +98,30 @@ class _SoundsMenuScreenState extends State<SoundsMenuScreen> {
                 ),
               ),
 
-              ///Persian Lalayi Container
+              ///Special sounds Container
               Positioned(
                 left: ScreenUtil().setWidth(12),
                 right: ScreenUtil().setWidth(12),
                 top: ScreenUtil().screenHeight * 0.38,
                 child: DashedContainerWidget(
                   height: 65,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(
+                      PageRouteBuilder(
+                        transitionDuration: const Duration(milliseconds: 200),
+                        pageBuilder: (_, animation, __) => FadeTransition(
+                          opacity: animation,
+                          child: SoundPlayScreen("sound"),
+                        ),
+                      ),
+                    );
+                  },
                   child: Container(
                     width: ScreenUtil().screenWidth,
                     height: ScreenUtil().screenHeight,
                     alignment: Alignment.center,
                     child: Text(
-                      "لالایی فارسی",
+                      "صداهای خاص",
                       style: AppTheme.fontCreator(
                         26,
                         FontWeights.medium,
@@ -150,18 +161,28 @@ class _SoundsMenuScreenState extends State<SoundsMenuScreen> {
                 ),
               ),
 
-              ///Special Sounds Container
+              ///Lullabies Container
               Positioned(
                 left: ScreenUtil().setWidth(12),
                 right: ScreenUtil().setWidth(12),
                 top: ScreenUtil().screenHeight * 0.6,
                 child: DashedContainerWidget(
                   height: 65,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(
+                      PageRouteBuilder(
+                        transitionDuration: const Duration(milliseconds: 200),
+                        pageBuilder: (_, animation, __) => FadeTransition(
+                          opacity: animation,
+                          child: SoundPlayScreen("lullaby"),
+                        ),
+                      ),
+                    );
+                  },
                   child: Container(
                     alignment: Alignment.center,
                     child: Text(
-                      "صداهای خاص",
+                      "لالایی و موسیقی",
                       style: AppTheme.fontCreator(
                         26,
                         FontWeights.medium,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:niniland/Providers/SoundsProvider.dart';
+import 'package:niniland/Screens/HomeScreen.dart';
 import 'package:niniland/Screens/SoundPlayScreen.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SoundPlayScreen(),
+      home: HomeScreen(),
     );
   }
 }

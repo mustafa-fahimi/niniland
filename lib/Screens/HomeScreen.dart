@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:niniland/Components/CloudBackgroundWidget.dart';
 import 'package:niniland/Components/DashedContainerWidget.dart';
+import 'package:niniland/Games/GameMainPage.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
 import 'package:niniland/Screens/SoundsMenuScreen.dart';
 import 'package:spring/spring.dart';
@@ -52,15 +53,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: DashedContainerWidget(
                     height: 80,
                     onTap: () {
-                      Navigator.of(context).push(PageRouteBuilder(
-                        transitionDuration:
-                        const Duration(milliseconds: 800),
-                        pageBuilder: (_, animation, __) =>
-                            FadeTransition(
-                              opacity: animation,
-                              child: SoundsMenuScreen(),
-                            ),
-                      ));
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                          transitionDuration: const Duration(milliseconds: 800),
+                          pageBuilder: (_, animation, __) => FadeTransition(
+                            opacity: animation,
+                            child: SoundsMenuScreen(),
+                          ),
+                        ),
+                      );
                     },
                     child: Container(
                       width: ScreenUtil().screenWidth,
@@ -121,6 +122,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   top: ScreenUtil().screenHeight * 0.54,
                   child: DashedContainerWidget(
                     height: 80,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                          transitionDuration: const Duration(milliseconds: 200),
+                          pageBuilder: (_, animation, __) => FadeTransition(
+                            opacity: animation,
+                            child: GameMainPage(),
+                          ),
+                        ),
+                      );
+                    },
                     child: Container(
                       alignment: Alignment.center,
                       child: Text(

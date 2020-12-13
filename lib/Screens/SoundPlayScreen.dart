@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:fdottedline/fdottedline.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:niniland/Components/CloudBackgroundWidget.dart';
@@ -15,6 +16,10 @@ import 'package:provider/provider.dart';
 import 'package:spring/spring.dart';
 
 class SoundPlayScreen extends StatefulWidget {
+  final String state;
+
+  SoundPlayScreen(this.state);
+
   @override
   _SoundPlayScreenState createState() => _SoundPlayScreenState();
 }
@@ -62,6 +67,9 @@ class _SoundPlayScreenState extends State<SoundPlayScreen> {
   void initState() {
     super.initState();
     _audioPlayer = AssetsAudioPlayer.newPlayer();
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      soundsProvider.fillSoundsData(widget.state);
+    });
   }
 
   @override
@@ -118,7 +126,7 @@ class _SoundPlayScreenState extends State<SoundPlayScreen> {
                             alignment: Alignment.center,
                             margin: singleMargin(bottom: 20),
                             child: Text(
-                              "صداهای خاص",
+                              widget.state == "sound" ? "صداهای خاص" : "لالایی و موسیقی",
                               style: AppTheme.fontCreator(
                                 28,
                                 FontWeights.medium,
@@ -175,7 +183,7 @@ class _SoundPlayScreenState extends State<SoundPlayScreen> {
                                         () {
                                           soundsProvider.setActiveDurationIndex(index);
                                           _audioPlayer.stop();
-                                          soundsProvider.resetSoundsData();
+                                          soundsProvider.fillSoundsData(widget.state);
                                         },
                                       ),
                                     );
@@ -229,10 +237,11 @@ class _SoundPlayScreenState extends State<SoundPlayScreen> {
                                                         if (_audioPlayer.isPlaying.value) {
                                                           _audioPlayer.stop();
                                                           stopTimer();
-                                                          soundsProv.resetSoundsData();
+                                                          soundsProv.fillSoundsData(widget.state);
 
                                                           ///If clicked icon wasn't the playing audio so we should play it
                                                           if (soundsProv.lastSoundPlayingIndex != index) {
+                                                            print(soundsProv.soundsData(index).soundAddress);
                                                             _audioPlayer.open(
                                                               Audio(soundsProv.soundsData(index).soundAddress),
                                                               loopMode: LoopMode.single,
@@ -243,6 +252,7 @@ class _SoundPlayScreenState extends State<SoundPlayScreen> {
                                                             soundsProv.toggleSoundsPlayState(index);
                                                           }
                                                         } else {
+                                                          print(soundsProv.soundsData(index).soundAddress);
                                                           _audioPlayer.open(
                                                             Audio(soundsProv.soundsData(index).soundAddress),
                                                             loopMode: LoopMode.single,
