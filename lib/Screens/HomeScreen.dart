@@ -242,11 +242,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       );
                     },
-                    child: SvgPicture.asset(
-                      "assets/images/svg/info.svg",
+                    child: Container(
                       width: 18.w,
                       height: 18.w,
-                      fit: BoxFit.fitWidth,
+                      child: SvgPicture.asset(
+                        "assets/images/svg/info.svg",
+                      ),
                     ),
                   ),
                 ),
