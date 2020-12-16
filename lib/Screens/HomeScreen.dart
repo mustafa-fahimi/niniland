@@ -1,14 +1,21 @@
+import 'dart:io';
 import "dart:math" show pi;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:niniland/Components/CloudBackgroundWidget.dart';
 import 'package:niniland/Components/DashedContainerWidget.dart';
+import 'package:niniland/Components/TeddyDialog.dart';
 import 'package:niniland/Games/GameMainPage.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
+import 'package:niniland/Screens/InstructionScreen.dart';
 import 'package:niniland/Screens/SoundsMenuScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spring/spring.dart';
+import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -18,6 +25,53 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _springKeyDuck = GlobalKey<SpringState>();
   final _springKeyMoon = GlobalKey<SpringState>();
+
+  @override
+  void initState() {
+    super.initState();
+    checkInternetConnection();
+  }
+
+  _launchURL() async {
+    //Fixme: change url to correct url
+    const url = 'https://cafebazaar.ir/app/ir.matarata.robotremote';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void checkInternetConnection() async {
+    try {
+      final result = await InternetAddress.lookup('google.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        ///Device has internet connection
+        var url = 'http://192.168.43.69/niniland_version.php';
+        var response = await http.post(url, body: {'token': 'niniland'});
+        if (response.statusCode == 200 && response.body == "2.0.0") {
+          ///App should be updated
+          showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (context) {
+              return TeddyDialog(
+                "نسخه جدید نرم افزار اومده\nخرسی ازتون میخواد که نرم افزارشو بروزرسانی کنید. لطفا با کلیک روی "
+                    "دکمه زیر اونو بروزرسانی کنید.",
+                "بروزرسانی",
+                null,
+                false,
+                _launchURL,
+              );
+            },
+          );
+        }
+      }
+    } on Exception catch (e) {
+      ///Don't need to do anything
+      print(e.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -168,6 +222,31 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: ScreenUtil().setWidth(50),
                         fit: BoxFit.fitWidth,
                       ),
+                    ),
+                  ),
+                ),
+
+                ///Question logo
+                Positioned(
+                  bottom: 10.w,
+                  right: 10.w,
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                          transitionDuration: const Duration(milliseconds: 800),
+                          pageBuilder: (_, animation, __) => FadeTransition(
+                            opacity: animation,
+                            child: InstructionScreen(),
+                          ),
+                        ),
+                      );
+                    },
+                    child: SvgPicture.asset(
+                      "assets/images/svg/info.svg",
+                      width: 18.w,
+                      height: 18.w,
+                      fit: BoxFit.fitWidth,
                     ),
                   ),
                 ),

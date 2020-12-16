@@ -3,6 +3,7 @@ import 'package:niniland/Providers/SoundsProvider.dart';
 import 'package:niniland/Screens/HomeScreen.dart';
 import 'package:niniland/Screens/SoundPlayScreen.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Services/PushNotificationsManager.dart';
 
@@ -10,6 +11,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   PushNotificationsManager notificationsManager = PushNotificationsManager();
   notificationsManager.init();
+  SharedPreferences.setMockInitialValues({});
   runApp(
     MultiProvider(
       providers: [

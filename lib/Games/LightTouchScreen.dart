@@ -1,14 +1,16 @@
+import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
 import 'package:snappable/snappable.dart';
 
-class TurnOnTheLight extends StatefulWidget {
+class LightTouchScreen extends StatefulWidget {
   @override
-  _TurnOnTheLightState createState() => _TurnOnTheLightState();
+  _LightTouchScreenState createState() => _LightTouchScreenState();
 }
 
-class _TurnOnTheLightState extends State<TurnOnTheLight> {
+class _LightTouchScreenState extends State<LightTouchScreen> {
   double x = 0, y = 0;
   final radius = 60.0;
   bool lightOn = false;
@@ -29,6 +31,7 @@ class _TurnOnTheLightState extends State<TurnOnTheLight> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: Size(207, 368));
     return Scaffold(
       body: GestureDetector(
         onPanStart: (val) => _onPanUpdate(val.localPosition),
@@ -37,7 +40,15 @@ class _TurnOnTheLightState extends State<TurnOnTheLight> {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Center(child: SvgPicture.asset("assets/images/svg/moon.svg")),
+            Blur(
+              blur: 15,
+              blurColor: Colors.lightBlue,
+              child: Container(
+                width: ScreenUtil().screenWidth,
+                height: ScreenUtil().screenHeight,
+                color: Colors.cyan,
+              ),
+            ),
             ClipPath(
               clipper: lightOn ? LightClipper(x, y, radius: radius) : null,
               child: Container(
@@ -56,8 +67,7 @@ class _TurnOnTheLightState extends State<TurnOnTheLight> {
                   children: [
                     Text(
                       "روی صفحه کلیک کنید",
-                      style: AppTheme.fontCreator(
-                          13, FontWeights.medium, Colors.white),
+                      style: AppTheme.fontCreator(13, FontWeights.medium, Colors.white),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -79,14 +89,11 @@ class LightClipper extends CustomClipper<Path> {
 
   @override
   Path getClip(Size size) {
-    final circlePath = Path()
-      ..addOval(Rect.fromCircle(center: Offset(x, y), radius: radius));
-    final fullPath = Path()
-      ..addRect(Rect.fromLTWH(0, 0, size.width, size.height));
+    final circlePath = Path()..addOval(Rect.fromCircle(center: Offset(x, y), radius: radius));
+    final fullPath = Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height));
     return Path.combine(PathOperation.reverseDifference, circlePath, fullPath);
   }
 
   @override
-  bool shouldReclip(LightClipper oldClipper) =>
-      x != oldClipper.x || y != oldClipper.y;
+  bool shouldReclip(LightClipper oldClipper) => x != oldClipper.x || y != oldClipper.y;
 }

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:niniland/Games/FireWork.dart';
-import 'package:niniland/Games/turn_on_the_light.dart';
+import 'package:niniland/Games/FireWorkScreen.dart';
+import 'package:niniland/Games/LightTouchScreen.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
 import 'package:niniland/Helpers/EdgeInsetsShortener.dart';
 import 'package:slide_to_act/slide_to_act.dart';
@@ -15,15 +15,22 @@ class GameMainPage extends StatefulWidget {
 
 class _GameMainPageState extends State<GameMainPage> {
   int index = 0;
+  var _timer;
 
   @override
   void initState() {
     super.initState();
-    Timer.periodic(Duration(seconds: 4), (timer) {
+    _timer = Timer.periodic(Duration(seconds: 6), (timer) {
       setState(() {
         index = index == 1 ? 0 : 1;
       });
     });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -34,8 +41,8 @@ class _GameMainPageState extends State<GameMainPage> {
       child: IndexedStack(
         index: index,
         children: [
-          FireWork(),
-          TurnOnTheLight(),
+          FireWorkScreen(),
+          LightTouchScreen(),
         ],
       ),
     );
@@ -63,7 +70,6 @@ class _DialogExitState extends State<DialogExit> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
       if (time == 0) {
@@ -75,6 +81,12 @@ class _DialogExitState extends State<DialogExit> {
         });
       }
     });
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 
   @override
