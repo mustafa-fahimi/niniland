@@ -1,7 +1,7 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
 import 'package:snappable/snappable.dart';
 
@@ -17,6 +17,7 @@ class _LightTouchScreenState extends State<LightTouchScreen> {
 
   void _onPanUpdate(Offset offset) {
     setState(() {
+      SystemChrome.setEnabledSystemUIOverlays([]);
       lightOn = true;
       x = offset.dx;
       y = offset.dy;

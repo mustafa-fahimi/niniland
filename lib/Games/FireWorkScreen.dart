@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
 import 'package:pimp_my_button/pimp_my_button.dart';
@@ -28,6 +29,7 @@ class _FireWorkScreenState extends State<FireWorkScreen> {
             child: GestureDetector(
               onPanStart: (d) {
                 setState(() {
+                  SystemChrome.setEnabledSystemUIOverlays([]);
                   x = d.globalPosition.dx;
                   y = d.globalPosition.dy;
                 });
