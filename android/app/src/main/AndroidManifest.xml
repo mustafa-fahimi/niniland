@@ -5,6 +5,7 @@
 
    <application
         android:label="بچه جون"
+       android:name=".Application"
        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
