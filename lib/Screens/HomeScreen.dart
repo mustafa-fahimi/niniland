@@ -2,9 +2,9 @@ import 'dart:io';
 import "dart:math" show pi;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart' as http;
 import 'package:niniland/Components/CloudBackgroundWidget.dart';
 import 'package:niniland/Components/DashedContainerWidget.dart';
 import 'package:niniland/Components/TeddyDialog.dart';
@@ -12,9 +12,7 @@ import 'package:niniland/Games/GameMainPage.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
 import 'package:niniland/Screens/InstructionScreen.dart';
 import 'package:niniland/Screens/SoundsMenuScreen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:spring/spring.dart';
-import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -47,9 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
       final result = await InternetAddress.lookup('google.com');
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
         ///Device has internet connection
-        var url = 'http://192.168.43.69/niniland_version.php';
+        var url = 'http://matarata.ir/niniland_version.php';
         var response = await http.post(url, body: {'token': 'niniland'});
-        if (response.statusCode == 200 && response.body == "2.0.0") {
+        if (response.statusCode == 200 && response.body != "1.0.0") {
           ///App should be updated
           showDialog(
             barrierDismissible: false,
@@ -231,7 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   bottom: 10.w,
                   right: 10.w,
                   child: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.of(context).push(
                         PageRouteBuilder(
                           transitionDuration: const Duration(milliseconds: 800),

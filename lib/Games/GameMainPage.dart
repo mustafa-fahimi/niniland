@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:niniland/Games/FireWorkScreen.dart';
 import 'package:niniland/Games/LightTouchScreen.dart';
@@ -20,6 +21,7 @@ class _GameMainPageState extends State<GameMainPage> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setEnabledSystemUIOverlays([]);
     _timer = Timer.periodic(Duration(seconds: 6), (timer) {
       setState(() {
         index = index == 1 ? 0 : 1;
@@ -30,6 +32,7 @@ class _GameMainPageState extends State<GameMainPage> {
   @override
   void dispose() {
     _timer.cancel();
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     super.dispose();
   }
 
