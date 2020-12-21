@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
       final result = await InternetAddress.lookup('google.com');
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
         ///Device has internet connection
-        var url = 'http://matarata.ir/niniland_version.php';
+        var url = 'https://matarata.ir/niniland_version.php';
         var response = await http.post(url, body: {'token': 'niniland'});
         if (response.statusCode == 200 && response.body != "1.0.0") {
           ///App should be updated

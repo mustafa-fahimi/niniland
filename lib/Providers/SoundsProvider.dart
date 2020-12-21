@@ -36,7 +36,7 @@ class SoundsProvider extends ChangeNotifier {
         SoundsModel("شوش", "assets/audios/sounds/female_shush_sound.mp3", false),
         SoundsModel("شوش با موسیقی", "assets/audios/sounds/shush_music_sound.mp3", false),
         SoundsModel("رحم", "assets/audios/sounds/utero_sound.mp3", false),
-        SoundsModel("جعبه موسیفی", "assets/audios/sounds/music_box_sound.mp3", false),
+        SoundsModel("جعبه موسیقی", "assets/audios/sounds/music_box_sound.mp3", false),
         SoundsModel("جاروبرقی", "assets/audios/sounds/vacuum_cleaner_sound.mp3", false),
         SoundsModel("ماشین", "assets/audios/sounds/car_engine_sound.mp3", false),
         SoundsModel("قلب", "assets/audios/sounds/heartbeat_sound.mp3", false),
