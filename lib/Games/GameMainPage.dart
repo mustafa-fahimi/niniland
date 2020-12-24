@@ -15,23 +15,15 @@ class GameMainPage extends StatefulWidget {
 }
 
 class _GameMainPageState extends State<GameMainPage> {
-  int index = 0;
-  var _timer;
 
   @override
   void initState() {
     super.initState();
     SystemChrome.setEnabledSystemUIOverlays([]);
-    _timer = Timer.periodic(Duration(seconds: 6), (timer) {
-      setState(() {
-        index = index == 1 ? 0 : 1;
-      });
-    });
   }
 
   @override
   void dispose() {
-    _timer.cancel();
     SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     super.dispose();
   }
@@ -41,13 +33,7 @@ class _GameMainPageState extends State<GameMainPage> {
     ScreenUtil.init(context, designSize: Size(207, 368));
     return WillPopScope(
       onWillPop: _onWillPop,
-      child: IndexedStack(
-        index: index,
-        children: [
-          FireWorkScreen(),
-          LightTouchScreen(),
-        ],
-      ),
+      child: LightTouchScreen(),
     );
   }
 

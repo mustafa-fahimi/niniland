@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _launchURL() async {
     //Fixme: change url to correct url
-    const url = 'https://cafebazaar.ir/app/ir.matarata.robotremote';
+    const url = 'https://cafebazaar.ir/app/ir.niniland';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
