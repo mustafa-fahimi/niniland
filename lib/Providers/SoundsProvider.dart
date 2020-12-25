@@ -3,7 +3,7 @@ import 'package:niniland/Models/SoundsModel.dart';
 
 class SoundsProvider extends ChangeNotifier {
   int _activeDurationIndex = 0;
-  List<SoundsModel> _soundsData = new List<SoundsModel>();
+  List<SoundsModel> _soundsData = List<SoundsModel>.empty(growable: true);
   int _lastSoundPlayingIndex = -1;
 
   int get activeDurationIndex => _activeDurationIndex;
