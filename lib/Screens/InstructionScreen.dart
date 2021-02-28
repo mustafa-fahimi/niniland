@@ -12,14 +12,12 @@ class InstructionScreen extends StatefulWidget {
 }
 
 class _InstructionScreenState extends State<InstructionScreen> {
-  final String mainText =
-      "اگر غذاش رو خورده ، بادگلو هم زده ، زیرش هم تمیزه ولی هنوزم گریه میکنه احتمالا نوزاد شما خیلی خسته شده.\nزمانی که "
+  final String mainText = "اگر غذاش رو خورده ، بادگلو هم زده ، زیرش هم تمیزه ولی هنوزم گریه میکنه احتمالا نوزاد شما خیلی خسته شده.\nزمانی که "
       "نوزاد شما خسته است به تنهایی قادر به خوابیدن نیست . این یک وضعیت معمول برای نوزادان تازه متولد شده است این شرایطی است که"
       " این نرم افزار می تواند به شما خیلی کمک بکند .\n ما در این نرم افزار صدای های یکنواخت با فرکانس پایین و اثبات شده توسط سایر والدین رو پخش میکنیم و کمک میکنیم تا دلبند شما راحت تر بخوابد. این صدا ها به دلیل شباهت به صداهایی که نوزاد در شکم مادر می شنود باعث می شود راحت تر به خواب رود.";
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(207, 368));
     return SafeArea(
       child: Scaffold(
         body: Directionality(
@@ -55,7 +53,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
                                 color: Colors.transparent,
                                 child: InkWell(
                                   splashColor: Colors.grey,
-                                  onTap: (){
+                                  onTap: () {
                                     Navigator.pop(context);
                                   },
                                   child: Icon(

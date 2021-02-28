@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:niniland/Helpers/AppTheme.dart';
 import 'package:niniland/Providers/SoundsProvider.dart';
 import 'package:niniland/Screens/HomeScreen.dart';
 import 'package:provider/provider.dart';
@@ -25,13 +27,17 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'بچه جون',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ScreenUtilInit(
+      designSize: AppTheme.screenutilSize,
+      allowFontScaling: false,
+      builder: () => MaterialApp(
+        title: 'بچه جون',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: HomeScreen(),
       ),
-      home: HomeScreen(),
     );
   }
 }

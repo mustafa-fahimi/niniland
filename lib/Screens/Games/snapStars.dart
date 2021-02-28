@@ -19,7 +19,6 @@ class _SnapStartState extends State<SnapStars> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(207, 368));
     final key = GlobalKey<SnappableState>();
     return Stack(
       children: [

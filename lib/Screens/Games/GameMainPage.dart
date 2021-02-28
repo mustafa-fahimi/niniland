@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:niniland/Games/FireWorkScreen.dart';
-import 'package:niniland/Games/LightTouchScreen.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
 import 'package:niniland/Helpers/EdgeInsetsShortener.dart';
 import 'package:slide_to_act/slide_to_act.dart';
+
+import 'LightTouchScreen.dart';
 
 class GameMainPage extends StatefulWidget {
   @override
@@ -30,7 +30,6 @@ class _GameMainPageState extends State<GameMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(207, 368));
     return WillPopScope(
       onWillPop: _onWillPop,
       child: LightTouchScreen(),

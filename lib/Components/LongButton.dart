@@ -12,7 +12,6 @@ class LongButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(207, 368));
     return FlatButton(
       padding: EdgeInsets.zero,
       onPressed: onTap,
@@ -27,7 +26,7 @@ class LongButton extends StatelessWidget {
         ),
         child: Text(
           text ?? "",
-          style: AppTheme.fontCreator(9, FontWeights.medium,  Colors.white),
+          style: AppTheme.fontCreator(9, FontWeights.medium, Colors.white),
           textAlign: TextAlign.center,
         ),
       ),

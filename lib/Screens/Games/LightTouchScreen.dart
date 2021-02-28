@@ -32,7 +32,6 @@ class _LightTouchScreenState extends State<LightTouchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(207, 368));
     return Scaffold(
       body: GestureDetector(
         onPanStart: (val) => _onPanUpdate(val.localPosition),

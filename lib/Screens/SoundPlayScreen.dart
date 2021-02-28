@@ -82,7 +82,6 @@ class _SoundPlayScreenState extends State<SoundPlayScreen> {
   @override
   Widget build(BuildContext context) {
     soundsProvider = Provider.of<SoundsProvider>(context);
-    ScreenUtil.init(context, designSize: Size(207, 368));
     return SafeArea(
       child: Scaffold(
         body: Directionality(

@@ -25,7 +25,6 @@ class DashedContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(207, 368));
     return Container(
       width: width != null ? ScreenUtil().setWidth(width) : null,
       height: height != null ? ScreenUtil().setHeight(height) : null,

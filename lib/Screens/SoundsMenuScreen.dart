@@ -1,4 +1,3 @@
-
 import 'package:fdottedline/fdottedline.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +20,6 @@ class _SoundsMenuScreenState extends State<SoundsMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(207, 368));
     return SafeArea(
       top: true,
       bottom: false,
@@ -138,7 +136,7 @@ class _SoundsMenuScreenState extends State<SoundsMenuScreen> {
                 right: ScreenUtil().setWidth(7),
                 top: ScreenUtil().screenHeight * 0.32,
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     _springKeyPestonak.currentState.animate(motion: Motion.Play);
                   },
                   child: Spring(
@@ -199,7 +197,7 @@ class _SoundsMenuScreenState extends State<SoundsMenuScreen> {
                 left: ScreenUtil().setWidth(7),
                 top: ScreenUtil().screenHeight * 0.68,
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     _springKeyMilk.currentState.animate(motion: Motion.Play);
                   },
                   child: Spring(
@@ -209,7 +207,7 @@ class _SoundsMenuScreenState extends State<SoundsMenuScreen> {
                     animDuration: Duration(milliseconds: 600),
                     curve: Curves.ease,
                     animStatus: (status) {
-                      if(status == AnimationStatus.completed){
+                      if (status == AnimationStatus.completed) {
                         _springKeyMilk.currentState.animate(motion: Motion.Reverse);
                       }
                     },

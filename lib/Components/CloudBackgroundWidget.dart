@@ -11,7 +11,6 @@ class CloudBackgroundWidget extends StatefulWidget {
 class _CloudBackgroundWidgetState extends State<CloudBackgroundWidget> {
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(207, 368));
     return Container(
       color: AppTheme.lightBlue,
       child: Stack(

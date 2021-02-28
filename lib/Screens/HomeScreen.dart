@@ -8,8 +8,8 @@ import 'package:http/http.dart' as http;
 import 'package:niniland/Components/CloudBackgroundWidget.dart';
 import 'package:niniland/Components/DashedContainerWidget.dart';
 import 'package:niniland/Components/TeddyDialog.dart';
-import 'package:niniland/Games/GameMainPage.dart';
 import 'package:niniland/Helpers/AppTheme.dart';
+import 'package:niniland/Screens/Games/VideosScreen.dart';
 import 'package:niniland/Screens/InstructionScreen.dart';
 import 'package:niniland/Screens/SoundsMenuScreen.dart';
 import 'package:spring/spring.dart';
@@ -73,7 +73,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(207, 368));
     return SafeArea(
       child: Scaffold(
         body: Material(
@@ -180,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           transitionDuration: const Duration(milliseconds: 200),
                           pageBuilder: (_, animation, __) => FadeTransition(
                             opacity: animation,
-                            child: GameMainPage(),
+                            child: VideosScreen(),
                           ),
                         ),
                       );
@@ -188,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Container(
                       alignment: Alignment.center,
                       child: Text(
-                        "سرگرمی",
+                        "فیلم ها",
                         style: AppTheme.fontCreator(
                           32,
                           FontWeights.medium,

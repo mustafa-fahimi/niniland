@@ -10,14 +10,9 @@ enum FontWeights {
 }
 
 class AppTheme {
-  BuildContext _mContext;
 
-  AppTheme(BuildContext mContext) {
-    this._mContext = mContext;
-    ScreenUtil.init(_mContext,
-        designSize: Size(MediaQuery.of(_mContext).size.width, MediaQuery.of(_mContext).size.height),
-        allowFontScaling: true);
-  }
+  static const screenutilSize = Size(207, 368);
+  static const screenutilSize2 = Size(360, 690);
 
   ///Colors
   static Color lightBlue = Color(0xff9dd6e4);

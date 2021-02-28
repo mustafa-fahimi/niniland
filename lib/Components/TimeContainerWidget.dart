@@ -52,7 +52,6 @@ class _TimeContainerWidgetState extends State<TimeContainerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: Size(207, 368));
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Consumer<SoundsProvider>(

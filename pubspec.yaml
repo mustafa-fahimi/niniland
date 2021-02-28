@@ -1,7 +1,7 @@
 name: niniland
 description: A new Flutter application.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.1.0+2
 
@@ -11,30 +11,31 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^0.19.1
-  flutter_screenutil: ^3.2.0
-  flare_flutter: ^2.0.6
+  assets_audio_player: ^2.0.13+8
+  blur: ^1.0.1
+  cupertino_icons: ^1.0.2
   fdottedline: ^1.0.1
-  spring: ^1.0.4
-  snappable: ^1.0.1
-  slide_to_act: ^0.1.3+1
   firebase_core: ^0.5.2
   firebase_messaging: ^7.0.3
-  cupertino_icons: ^1.0.0
-  pimp_my_button: ^1.0.0
-  assets_audio_player: ^2.0.13+1
-  provider: ^4.3.2+2
-  http: ^0.12.2
-  url_launcher: ^5.7.10
-  blur: ^1.0.1
+  flare_flutter: ^2.0.6
   flutter_automation: ^1.4.0
+  flutter_screenutil: ^4.0.3+1
+  flutter_svg: ^0.19.3
+  http: ^0.12.2
+  path_provider: ^1.6.8
+  pimp_my_button: ^1.0.0
+  provider: ^4.3.3
+  slide_to_act: ^0.1.3+1
+  snappable: ^1.0.1
+  spring: ^1.0.4
+  universal_io: ^1.0.2
+  url_launcher: ^6.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
-
   uses-material-design: true
   assets:
     - assets/images/svg/
@@ -60,4 +61,3 @@ flutter:
           weight: 200
         - asset: assets/fonts/IRANSansUltraLight.ttf
           weight: 100
-
