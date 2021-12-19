@@ -28,7 +28,8 @@ class _FireWorkScreenState extends State<FireWorkScreen> {
             child: GestureDetector(
               onPanStart: (d) {
                 setState(() {
-                  SystemChrome.setEnabledSystemUIOverlays([]);
+                  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+                      overlays: []);
                   x = d.globalPosition.dx;
                   y = d.globalPosition.dy;
                 });
@@ -67,7 +68,8 @@ class _FireWorkScreenState extends State<FireWorkScreen> {
                   alignment: Alignment.center,
                   child: Text(
                     "روی صفحه کلیک کنید",
-                    style: AppTheme.fontCreator(13, FontWeights.medium, Colors.white),
+                    style: AppTheme.fontCreator(
+                        13, FontWeights.medium, Colors.white),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -103,7 +105,11 @@ class DemoParticle extends Particle {
           child: AnimatedPositionedParticle(
             begin: Offset(0.0, 20.0),
             end: Offset(0.0, 60.0),
-            child: FadingRect(width: 2.0, height: 40.0, color: Color((random.nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0)),
+            child: FadingRect(
+                width: 2.0,
+                height: 40.0,
+                color: Color((random.nextDouble() * 0xFFFFFF).toInt())
+                    .withOpacity(1.0)),
           ),
           initialRotation: -pi / randomMirrorOffset),
       CircleMirror.builder(
@@ -117,7 +123,8 @@ class DemoParticle extends Particle {
                       baseSize: 6.0 + random.nextDouble() * 10.0,
                       heightToBaseFactor: 1.0 + random.nextDouble(),
                       variation: random.nextDouble(),
-                      color: Color((random.nextDouble() * 0xFFFFFF).toInt()).withOpacity(1.0)),
+                      color: Color((random.nextDouble() * 0xFFFFFF).toInt())
+                          .withOpacity(1.0)),
                 ),
                 interval: Interval(
                   0.0,

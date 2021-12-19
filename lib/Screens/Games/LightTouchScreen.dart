@@ -17,7 +17,7 @@ class _LightTouchScreenState extends State<LightTouchScreen> {
 
   void _onPanUpdate(Offset offset) {
     setState(() {
-      SystemChrome.setEnabledSystemUIOverlays([]);
+      SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
       lightOn = true;
       x = offset.dx;
       y = offset.dy;
@@ -67,7 +67,8 @@ class _LightTouchScreenState extends State<LightTouchScreen> {
                   children: [
                     Text(
                       "روی صفحه کلیک کنید",
-                      style: AppTheme.fontCreator(13, FontWeights.medium, Colors.white),
+                      style: AppTheme.fontCreator(
+                          13, FontWeights.medium, Colors.white),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -89,11 +90,14 @@ class LightClipper extends CustomClipper<Path> {
 
   @override
   Path getClip(Size size) {
-    final circlePath = Path()..addOval(Rect.fromCircle(center: Offset(x, y), radius: radius));
-    final fullPath = Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height));
+    final circlePath = Path()
+      ..addOval(Rect.fromCircle(center: Offset(x, y), radius: radius));
+    final fullPath = Path()
+      ..addRect(Rect.fromLTWH(0, 0, size.width, size.height));
     return Path.combine(PathOperation.reverseDifference, circlePath, fullPath);
   }
 
   @override
-  bool shouldReclip(LightClipper oldClipper) => x != oldClipper.x || y != oldClipper.y;
+  bool shouldReclip(LightClipper oldClipper) =>
+      x != oldClipper.x || y != oldClipper.y;
 }
